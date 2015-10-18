@@ -1,0 +1,72 @@
+\documentclass{article}
+\usepackage[colorlinks, urlcolor=blue]{hyperref}
+\usepackage{cite}
+\usepackage{amsmath}
+\usepackage{amssymb}
+% use \bibliographystyle{ieeetr}
+
+\title{ECE 532: Project Proposal}
+\author{Blake Mason, Ian Kinesella, Scott Sievert}
+
+% Watch out for the character ``#'' in URLs! They have to be escaped
+\newcommand{\SSlasso}{https://en.wikipedia.org/wiki/Least_squares\#Lasso_method}
+\newcommand{\groupLasso}{http://www.jstor.org/stable/20203811?seq=1\#page_scan_tab_contents}
+\newcommand{\sparseGroupLasso}{http://arxiv.org/abs/1001.0736}
+\newcommand{\SOSlasso}{http://papers.nips.cc/paper/4891-sparse-overlapping-sets-lasso-for-multitask-learning-and-its-application-to}
+\newcommand{\cvxpy}{http://www.cvxpy.org/en/latest/}
+\newcommand{\sparse}{https://en.wikipedia.org/wiki/Sparse_matrix}
+\newcommand{\norm}{https://en.wikipedia.org/wiki/Norm_(mathematics)}
+\newcommand{\real}{\mathbb{R}}
+
+\begin{document}
+\maketitle
+
+
+\section{LASSO extensions}
+Exploring LASSO more in depth than what's covered in class (on the syllabus, we're touching on LASSO in week 9, 3 weeks from now). It depends on how much we cover in class, but we can touch on more advanced topics too such as the
+
+\begin{itemize}
+    \item \href{\SSlasso}{LASSO method} \cite{tibshirani1996regression}
+   \item \href{\groupLasso}{group lasso} \cite{meier2008group}
+   \item \href{\sparseGroupLasso}{sparse group lasso} \cite{friedman2010note}
+   \item \href{\SOSlasso}{sparse overlapping set lasso} \cite{rao2013sparse}
+\end{itemize}
+
+We plan to investigate these models to fully understand why they work and design a lab around them.
+
+\section{Core concepts}
+In general, some measurements are known for an underdetermined system. LASSO finds a solution by adding a regularization term and finds a solution to the system
+
+$$y = Ax$$ where $y \in \real^m, A\in \real^{m\times n}$ and $x \in \real^n$ where $m \ll n$. This system is underdetermined and in general, this equation has infinitely many solutions and can not be solved. However, by assuming certain structure in a unique $x$ can be found.
+
+What structure is assumed about $x$? Do we assume that $x$ have very little energy? Do we assume that $x$ has very few non-zero elements? Do we assume some mix of the two? These assumptions can be represented by different \href{\norm}{norms}.
+
+The energy in a system can be represented by the $\ell_2$ norm and the number of non-zero coefficients can be represented by the $\ell_0$ norm. Because $\ell_0$ regularization is NP-hard, we replace the $\ell_0$ norm with the $\ell_1$ norm.
+
+Then we can say one of the following:
+
+$$\begin{aligned}
+\widehat{x} &= \arg \min_x ||y - Ax||_2^2 + \lambda||x||_1\\
+\widehat{x} &= \arg \min_x ||y - Ax||_2^2 + \lambda||x||_2\\
+\widehat{x} &= \arg \min_x ||y - Ax||_2^2 + \lambda_1 ||x||_1 + \lambda_2||x||_2
+\end{aligned}$$
+
+$\ell_2$ regularization tends to minimize the energy in the solution, leading to a solution that contains many small coefficients.
+
+$\ell_1$ regularization tends to give more \href{\sparse}{sparse} solutions. This regularization term can be seen as an approximation for a $\ell_0$ regularization term, which minimizes the number of non-zero enteries.
+
+It should be noted that including an $\ell_0$ regularization term is NP-hard. Qouting \cite{Mørup_approximatel0}
+
+\begin{quote}
+In general, solving for a given L0 norm is an NP hard problem thus convex relaxation regularization by the L1 norm is often considered
+\end{quote}
+
+The takeaway is that the $\ell_1$ regularization is a tractable problem and that mimics $\ell_0$ regularization.
+
+\subsection{Goal}
+We want to implement these algorithms and completely understand both the mathematics behind them and their implementation, instead of relying on third part software (like \href{\cvxpy}{cvxpy}).
+
+\bibliographystyle{plain}
+\bibliography{refs}
+
+\end{document}

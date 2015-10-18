@@ -1,0 +1,41 @@
+%===============================================================================
+% Latex Article
+%===============================================================================
+
+%%%%%%%%%%%%%%%%%%%%%
+%%% SCOTT SIEVERT %%%
+%%%%%%%%%%%%%%%%%%%%%
+% LATEX generated with command
+% ipython nbconvert --to pdf --template SShw filename.ipynb
+%
+% ### NOTES
+% * `\begin{align}` works in the IPython notebook but fails on compilation;
+%   use `\begin{aligned}` instead (because you're in math mode)
+% * I ran into an issue defining variables in the notebook then using that command while
+%   using nbconvert. I got around that by defining the commands in a single "raw nbconvert"
+%   cell and commenting/uncommenting $$ if using nbconvert.
+% * When reopening the notebook, I had to edit the cell to use the latex function again.
+% * I ran into issues where I had leading spaces before/after a ending/beginning $
+%       (same for newlines and $$)
+% * I ran into issues mixing math in section headings. Find a way not to include
+%   math in titles; it's the nicest solution (kind of like math and emails)
+% * I ran into issues with mixing math mode and \textrm. I had to escape outside
+%   of math mode -- instead of $...\textrm{ }...$ I used $...$ text $...$
+%
+% PYTHON code generated with command
+% ipython nbconvert --to python filename.ipynb
+
+((*- extends 'article.tplx' -*))
+
+((* block author *))
+\author{Scott Sievert, Blake Mason, Ian Kinesella}
+((* endblock author *))
+
+((* block title *))
+\title{ECE 532: Project Proposal}
+((* endblock title *))
+
+((* block bibliography *))
+\bibliographystyle{plain}
+\bibliography{refs}
+((* endblock bibliography *))
