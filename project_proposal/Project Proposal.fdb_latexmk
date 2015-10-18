@@ -1,13 +1,13 @@
 # Fdb version 3
-["bibtex Project Proposal"] 1445205272 "Project Proposal.aux" "Project Proposal.bbl" "Project Proposal" 1445205467
+["bibtex Project Proposal"] 1445209493 "Project Proposal.aux" "Project Proposal.bbl" "Project Proposal" 1445209495
   "/usr/local/texlive/2014/texmf-dist/bibtex/bst/base/plain.bst" 1292289607 20613 bd3fbfa9f64872b81ac57a0dd2ed855f ""
-  "Project Proposal.aux" 1445205467 1260 af9f3f287e41ae57f4f0e0ccd0dd767b ""
+  "Project Proposal.aux" 1445209494 1337 03a91d6d5df8fac2236eff68ac7cc225 ""
   "Project Proposal.bcf" 0 -1 0 ""
   "refs.bib" 1445204843 1469 c3a96dcbc387b8430e263a0c429beac7 ""
   (generated)
   "Project Proposal.blg"
   "Project Proposal.bbl"
-["pdflatex"] 1445205466 "Project Proposal.tex" "Project Proposal.pdf" "Project Proposal" 1445205467
+["pdflatex"] 1445209493 "Project Proposal.tex" "Project Proposal.pdf" "Project Proposal" 1445209495
   "/usr/local/texlive/2014/texmf-dist/fonts/map/fontname/texfonts.map" 1272929888 3287 e6b82fe08f5336d4d5ebc73fb1152e87 ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/local/texlive/2014/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex8.tfm" 1246382020 988 bdf658c3bfc2d96d3c8b02cfc1c94c20 ""
@@ -77,12 +77,12 @@
   "/usr/local/texlive/2014/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1401025944 1445653 26a0aacf3d70032b1ec192e8c7792117 ""
   "/usr/local/texlive/2014/texmf-var/web2c/pdftex/pdflatex.fmt" 1401025990 3832012 904d82bdcc8abf2b1cd296990b82553b ""
   "/usr/local/texlive/2014/texmf.cnf" 1401025936 577 a59edbde8d3a8c549d0eeaab1739e2ff ""
-  "Project Proposal.aux" 1445205467 1260 af9f3f287e41ae57f4f0e0ccd0dd767b ""
-  "Project Proposal.bbl" 1445205273 1201 2d8ed1c8135971c478e8d7fe7b072575 "bibtex Project Proposal"
-  "Project Proposal.out" 1445205467 152 11427293543178c164e99615c2d17069 ""
-  "Project Proposal.tex" 1445205465 3867 c465cf53176800682ea089a3f0a44666 ""
+  "Project Proposal.aux" 1445209494 1337 03a91d6d5df8fac2236eff68ac7cc225 ""
+  "Project Proposal.bbl" 1445209493 1201 2d8ed1c8135971c478e8d7fe7b072575 "bibtex Project Proposal"
+  "Project Proposal.out" 1445209494 191 584954294ca31f67205f3af839f88d32 ""
+  "Project Proposal.tex" 1445209491 4202 1f3bccf4104164329ad5534c3f920758 ""
   (generated)
   "Project Proposal.aux"
+  "Project Proposal.log"
   "Project Proposal.pdf"
   "Project Proposal.out"
-  "Project Proposal.log"
