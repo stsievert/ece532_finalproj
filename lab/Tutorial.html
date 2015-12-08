@@ -35704,7 +35704,7 @@ x_{k+1} &= \textrm{prox}_\lambda(z)
 <h3 id="Questions">Questions<a class="anchor-link" href="#Questions">&#182;</a></h3><ol>
 <li><p>Derive the proximity operator for $R(x) = \lambda_1||x||_1 + \frac{\lambda_2}{2}||x||_2^2$. <em>Hint: it's a combination of the $\ell_1$ and $\ell_2$ prox operator, so it may be helpful to first derive the prox operator for $\ell_2$ regularization then look at the LASSO derivation above.</em></p>
 </li>
-<li><p>Use the answer you derived in quesiton 1 to implement: $$\widehat{x} = \arg \min_x \, L(x) + \lambda \left(\left(1-\alpha\right)\cdot\frac{1}{2}\cdot||x||_2^2 + \alpha\cdot||x||_1\right) \hspace{1em} \alpha \in [0,1]$$ We provide the <code>BreastCancer.mat</code> and some skeleton code in the .zip file.</p>
+<li><p>Use the answer you derived in quesiton 1 to implement: $$\widehat{x} = \arg \min_x \, L(x) + \lambda \left(\left(1-\alpha\right)\cdot\frac{1}{2}\cdot||x||_2^2 + \alpha\cdot||x||_1\right) \hspace{1em} \alpha \in [0,1]$$ We provide the <code>fMRIGroup.mat</code> and some skeleton code in the .zip file.</p>
 </li>
 </ol>
 <p>This is elasticnet regularization. For the loss function $L(x)$, we recommend choosing something along the lines of Hinge or Logistic Loss as we will be performing binary classification, but Squared Error Loss will still work.</p>

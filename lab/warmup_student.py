@@ -53,7 +53,7 @@ def prox(z, lambda1, lambda2, tau):
     raise NotImplementedError, "Implement this function!"
 
 
-def breast_cancer_data():
+def fMRI_data():
     """
     :returns: The breast cancer data as (X, y). y are the observations (-1 or 1
     depending on cancer/cancer free) and X are the level of gene expression for
@@ -64,7 +64,7 @@ def breast_cancer_data():
 
 
 if __name__ == "__main__":
-    A, y = breast_cancer_data()
+    A, y = fMRI_data()
 
     # parameters to tune (we found good results with these parameters)
     tau = 1 / norm(A)**2
