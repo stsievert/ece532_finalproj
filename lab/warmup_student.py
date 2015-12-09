@@ -3,6 +3,20 @@ from pylab import *
 from scipy.io import loadmat
 import seaborn as sns
 
+"""
+NOTE: The fMRI dataset IS NOT suitable for Python (because it has a Matlab class
+defined and I couldn't get it to work in Python after playing with it for 15
+minutes.
+
+PROPOSED WORK AROUND: Use matlab to either
+* run the code and use this file as a template (i.e., look at the functions,
+  implement them in Matlab)
+* save the matrices/vectors in a separate format (not one class called dataset).
+  This allows the use of Python.
+
+We plan to shortly do this ourselves.
+"""
+
 __author__ = {'Scott Sievert': ['stsievert@me.com', 'scottsievert.com']}
 
 def soft_threshold(z, threshold):
@@ -64,7 +78,7 @@ def fMRI_data():
 
 
 if __name__ == "__main__":
-    A, y = fMRI_data()
+    #A, y = fMRI_data()
 
     # parameters to tune (we found good results with these parameters)
     tau = 1 / norm(A)**2
