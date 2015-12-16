@@ -1,0 +1,22 @@
+## Warmup
+1. Derivation not shown (but correct result). 5 points.
+2. Why are you changing lambda (and incorrectly)? However, this is about the
+   correct math. 5 points.
+
+## Main lab elastic net
+1. Evaluation of results is not shown (i.e., prediction accuracy). 3 points.
+2. Number of non-zero elements is not analyzed. 0 points.
+3. It is said which one has the highest accuracy. 5 points.
+4. Sensible paragraph written. 10 points.
+
+## Main lab group lasso
+1. Group lasso implemented. 10 points.
+2. Cross validation not implemented, results not provided. 0 points.
+3. A kinda sensible paragraph was written. Makes sense, because ridge
+   regression does the best (but no numerical results provided). 7 points.
+
+## Feedback, on time
+* on time, 5 points
+* no feedback, 0 points
+
+Total: 50 points
