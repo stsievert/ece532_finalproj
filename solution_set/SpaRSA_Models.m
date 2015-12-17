@@ -10,7 +10,7 @@ end
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 %% Sparse Group Lasso
-function [ mse, w_hat, y_hat ] = ...
+function [ error, w_hat, y_hat ] = ...
     Sparse_Group_LASSO( X_train, y_train, X_test, y_test, lambda, alpha, groups, w0 )
     % Check Warm Start
     if ~exist('w0')
@@ -32,11 +32,11 @@ function [ mse, w_hat, y_hat ] = ...
         'MaxiterA',100);
     % Evaluate Results
     y_hat = sign(X_test * w_hat); % Predict On Test Data
-    mse = mean(y_hat ~= y_test); % Calcukate error (raw prediction accuracy, not MSE)
+    error = mean(y_hat ~= y_test); % Calcukate error (raw prediction accuracy, not error)
 end
 
 %% Group LASSO
-function [ mse, w_hat, y_hat ] = ...
+function [ error, w_hat, y_hat ] = ...
     Group_LASSO( X_train, y_train, X_test, y_test, lambda, groups, w0 )
     % Check Warm Start
     if ~exist('w0')
@@ -59,11 +59,11 @@ function [ mse, w_hat, y_hat ] = ...
         'MaxiterA',100);
     % Evaluate Results
     y_hat = sign(X_test * w_hat); % Predict On Test Data
-    mse = mean(y_hat ~= y_test); % Calcukate error (raw prediction accuracy, not MSE)
+    error = mean(y_hat ~= y_test); % Calcukate error (raw prediction accuracy, not error)
 end
 
 %% Elastic Net
-function [ mse, w_hat, y_hat ] = ...
+function [ error, w_hat, y_hat ] = ...
     Elastic_Net( X_train, y_train, X_test, y_test, lambda, alpha, w0 )
     % Check Warm Start
     if ~exist('w0')
@@ -86,7 +86,7 @@ function [ mse, w_hat, y_hat ] = ...
         'MaxiterA',100);
     % Evaluate Results
     y_hat = sign(X_test * w_hat); % Predict On Test Data
-    mse = mean(y_hat ~= y_test); %  Calcukate error (raw prediction accuracy, not MSE)
+    error = mean(y_hat ~= y_test); %  Calcukate error (raw prediction accuracy, not error)
 end
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -194,7 +194,7 @@ end
 % BEGIN Solver
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-function [x,x_debias,objective,times,debias_start,mses,taus]= ...
+function [x,x_debias,objective,times,debias_start,errors,taus]= ...
     SpaRSA(y,A,tau,varargin)
 
     % SpaRSA version 2.0, December 31, 2007
@@ -390,7 +390,7 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
     %                     Default = 10.
     %
     %  'True_x' = if the true underlying x is passed in
-    %                this argument, MSE plots are generated.
+    %                this argument, error plots are generated.
     %
     %  'AlphaMin' = the alphamin parameter of the BB method.
     %               Default = 1e-30;
@@ -416,9 +416,9 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
     %                  phase started. If no debiasing took place,
     %                  this variable is returned as zero.
     %
-    %   mses = sequence of MSE values, with respect to True_x,
-    %          if it was given; if it was not given, mses is empty,
-    %          mses = [].
+    %   errors = sequence of error values, with respect to True_x,
+    %          if it was given; if it was not given, errors is empty,
+    %          errors = [].
     % ========================================================
 
 
@@ -449,7 +449,7 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
     sigma = .01;
     alphamin = 1e-30;
     alphamax = 1e30;
-    compute_mse = 0;
+    compute_error = 0;
     AT = 0;
     verbose = 1;
     continuation = 0;
@@ -467,7 +467,7 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
     % Set the defaults for outputs that may not be computed
     debias_start = 0;
     x_debias = [];
-    mses = [];
+    errors = [];
 
     % Read the optional parameters
     if (rem(length(varargin),2)==1)
@@ -525,7 +525,7 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
          case 'FIRSTTAUFACTOR'
            firstTauFactor = varargin{i+1};
          case 'TRUE_X'
-           compute_mse = 1;
+           compute_error = 1;
            true = varargin{i+1};
          case 'ALPHAMIN'
            alphamin = varargin{i+1};
@@ -628,7 +628,7 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
     end
 
     % if the true x was given, check its size
-    if compute_mse & (size(true) ~= size(x))
+    if compute_error & (size(true) ~= size(x))
       error(['Initial x has incompatible size']);
     end
 
@@ -645,8 +645,8 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
           end
           objective(1) = 0.5*(y(:)'*y(:));
           times(1) = 0;
-          if compute_mse
-            mses(1) = sum(true(:).^2);
+          if compute_error
+            errors(1) = sum(true(:).^2);
           end
           return
        end
@@ -754,12 +754,12 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
         f_lastM = f;
       end
 
-      % if we are at the very start of the process, store the initial mses and
+      % if we are at the very start of the process, store the initial errors and
       % objective in the plotting arrays
       if cont_loop==1
         objective(1) = f;
-        if compute_mse
-          mses(1) = (x(:)-true(:))'*(x(:)-true(:));
+        if compute_error
+          errors(1) = (x(:)-true(:))'*(x(:)-true(:));
         end
         if verbose
           fprintf(1,'Initial obj=%10.6e, alpha=%6.2e, nonzeros=%7d\n',...
@@ -854,9 +854,9 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
         objective(iter) = f;
         times(iter) = cputime-t0;
         % alphas(iter) = alpha;
-        if compute_mse
+        if compute_error
           err = true - x;
-          mses(iter) = (err(:)'*err(:));
+          errors(iter) = (err(:)'*err(:));
         end
 
         % compute stopping criteria and test for termination
@@ -1018,9 +1018,9 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
     	                  tau * phi_function(x_debias(:));
         times(iter) = cputime - t0;
 
-        if compute_mse
+        if compute_error
           err = true - x_debias;
-          mses(iter) = (err(:)'*err(:));
+          errors(iter) = (err(:)'*err(:));
         end
 
         % in the debiasing CG phase, always use convergence criterion
@@ -1048,8 +1048,8 @@ function [x,x_debias,objective,times,debias_start,mses,taus]= ...
       end
     end
 
-    if compute_mse
-      mses = mses/length(true(:));
+    if compute_error
+      errors = errors/length(true(:));
     end
 end
 
