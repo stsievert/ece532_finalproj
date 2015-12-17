@@ -5,6 +5,25 @@
 # Martin Barus:
 
 # Zheng Fan:
+##Warmup:
+1. 10/10. He correctly derived the pros operator and showed his derivation. 
+2. 10/10: He correctly derived the expression and successfully implemented this in code.
+
+##Main lab - Elastic Net:
+1. 10/10 Successfully analyzed the importance on lambdas and showed understanding of what the different alphas mean.
+2. 7/10: Did not directly address the question but did show understanding about what the question asked.
+3. 10/10: Gave a reasonable answer that matches our expectations. 
+4. 8/10: Answered the question but the answer provided only half answered the question, but missed the understanding about correlated features. 
+
+##Main Lab - Group LASSO:
+1. 10/10: Implemented the code successfully and showed understanding of its function.
+2. 10/10: Had a different answer than the sought for answer because there were some errors in his Group Lasso code, but he successfully analyzed these different results.
+3. 8/10: Answered the question but missed the overall goal of why you’d want to use elastic net over other L1 of L2 alone.
+
+##Overall:
+10/10: Turned in onetime and provided helpful feedback. Student did a good job of this lab.
+
+##Total grade: 93/100: The student understood the overall purpose of that lab and understood the purpose. 
 
 # He Song:
 ## Warmup
@@ -23,7 +42,7 @@
 4. Sensible paragraph written. 10 points.
 
 ## Main lab group lasso
-1. Group lasso implemented (but results not shown). 5 points.
+1. Group lasso pseudo code written (but results not shown). 5 points.
 2. Cross validation not implemented, results not provided. 0 points.
 3. A kinda sensible paragraph was written. Makes sense, because ridge
    regression does the best (but no numerical results provided). 7 points.
