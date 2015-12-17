@@ -39,17 +39,17 @@ for i = 1:CVouter.NumTestSets
     Errors_ = zeros(num_alphas, num_lambdas, 5);
     alpha_vals = linspace(0,1,num_alphas);
     lambda_vals = logspace(lambda_high, lambda_low, num_lambdas);
-    
+
     trainIdx = CVouter.training(i);
     holdIdx = CVouter.test(i);
-    
+
     % Separate test and training sets for the 10 fold
     % Xtr_out == X_train_out
     Xtr_outer = data(trainIdx,:);
     ytr_outer = labels(trainIdx);
     Xtest_outer = data(holdIdx,:);
     ytest_outer = labels(holdIdx);
-    
+
     CVinner = cvpartition(labels(trainIdx), 'k', num_inner);
     for j = 1:CVinner.NumTestSets
         % Separate test and training sets for the 9 fold
@@ -57,7 +57,7 @@ for i = 1:CVouter.NumTestSets
         y_train = ytr_outer(CVinner.training(j));
         X_test = Xtr_outer(CVinner.test(j),:);
         y_test = ytr_outer(CVinner.test(j));
-        
+
         % Do a grid search over all alphas and all lambdas
         i2 = 0;
         w_hat = zeros(size(X_train, 2), 1);
@@ -174,21 +174,21 @@ nnz_avg = mean(nnz_coef);
 % lead us to believe one or more of these three things:
 % things:
 %
-% 1.) The Group Structured signal was not actually present in the groups we
+% 1. The Group Structured signal was not actually present in the groups we
 % defined. Maybe if we had a different way of detecting group (overlapping
 % group lasso for example) we could do better.
 %
-% 2.) The Signal within the groups was sparse meaning that we would want to
+% 2. The signal within the groups was sparse meaning that we would want to
 % use something like the sparse group lasso which deals better with these
 % types of situations.
 %
-% 3.) The Signal isn't even grouped so we are shooting ourselves in the
+% 3. The Signal isn't even grouped so we are shooting ourselves in the
 % foot by using the group lasso.
 %
 % err
-% 
+%
 % err =
-% 
+%
 %     0.1250
 %     0.2500
 %     0.1250
@@ -199,16 +199,16 @@ nnz_avg = mean(nnz_coef);
 %     0.2500
 %     0.2500
 %     0.1250
-% 
+%
 % err_avg
-% 
+%
 % err_avg =
-% 
+%
 %     0.1625
 % nnz_coef
-% 
+%
 % nnz_coef =
-% 
+%
 %         4949
 %         4947
 %         4949
@@ -219,9 +219,9 @@ nnz_avg = mean(nnz_coef);
 %         4947
 %         4945
 %         4948
-%         
+%
 %         nnz_avg
-% 
+%
 % nnz_avg =
-% 
+%
 %    4.9325e+03
