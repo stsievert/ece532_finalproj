@@ -3,6 +3,30 @@
 * (grades for people who completed the lab from group 14)
 
 # Martin Barus:
+## Warmup
+1. 10/10: Nice job on the derivation.
+2. 10/10. Good succinct implementation of the Elastic Net, While we are doing classification and other loss functions would typically perform better, we too used squared error for simplicity and speed. The other loss functions took much longer which was prohibitive given the extensive cross-validation procedure.
+
+
+## Main lab elastic net
+1. 10/10 These results are consistent with what we saw when intially doing some rough tests with teh dataset. In your case, note how Ridge Regression (alpha=0) performed the greatest, but in our solutions we found that sparser solutions yielded better results. This could have arisen as a factor of the lambdas you searched over so we will not penalize the difference in results.
+2. 10/10 This is exactly correct. One thing I’d like to point out is that the sparsest solution you found was for alpha = .75. This is due to the fact that we were adaptively choosing lambda. As a result, the trials for alpha = .75 found greater prediction accuracy with a larger regularization param yielding a sparser solution than alpha = 1. Also note how this yielded higher accuracy than alpha = 1 & .5.
+
+3. 10/10 This is a reasonable explanation given the results you saw, This would makes us think that the signal on the data is spread among many voxels. Please check the solutions for our explanation of the signal we found.
+
+4. 10/10 Again, you got the point this is useful when we expect a sparse solution with highly correlated features. This method allows us to spread weight among the highly correlated features as opposed to just selecting one. This may help in terms of robustness, but can also be useful for interpretation.
+
+## Main lab group lasso
+1. 10/10. Looks good.
+2. 10/10. Looks like you got surprisingly good results with this regularization term. This makes sense due to the fact that your normal l2 regularization performed very well, and your group lasso selected most of the features(only a few purely 0 groups). While I won't penalize you for having different results, maybe you looked at a different subject, I recommend that you check out our results and explanation.
+3. 10/10. Again, you got the point of this! The important thing was to note that groups were selected together or not at all.
+
+
+## Feedback, on time
+* on time: 5/5 points. 
+* feedback: 5/5 points. Hey Martin thanks for the feedback on how the group structure was confusing. We will have to clear that up for our main submission. Great Job on the lab
+
+Total: 45 points
 
 # Zheng Fan:
 ##Warmup:
@@ -52,3 +76,4 @@
 * no feedback, 0 points
 
 Total: 45 points
+
