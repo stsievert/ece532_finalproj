@@ -117,7 +117,7 @@ nnz_avg = mean(nnz_coef);
 % us something about our signal: mainly it is sparse
 % nnz_coef
 %
-% nnz_coef =
+% >>> nnz_coef =
 %
 %         3546
 %          618
@@ -130,7 +130,7 @@ nnz_avg = mean(nnz_coef);
 %          644
 %         2601
 %
-% err
+% >>> err
 %
 % err =
 %
