@@ -23,7 +23,7 @@
 4. Sensible paragraph written. 10 points.
 
 ## Main lab group lasso
-1. Group lasso implemented. 10 points.
+1. Group lasso implemented (but results not shown). 5 points.
 2. Cross validation not implemented, results not provided. 0 points.
 3. A kinda sensible paragraph was written. Makes sense, because ridge
    regression does the best (but no numerical results provided). 7 points.
@@ -32,4 +32,4 @@
 * on time, 5 points
 * no feedback, 0 points
 
-Total: 50 points
+Total: 45 points
