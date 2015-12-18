@@ -1,0 +1,79 @@
+# Grading
+* Graded by: Ian Kinsella, Blake Mason, and Scott Sievert
+* (grades for people who completed the lab from group 14)
+
+# Martin Barus:
+## Warmup
+1. 10/10: Nice job on the derivation.
+2. 10/10. Good succinct implementation of the Elastic Net, While we are doing classification and other loss functions would typically perform better, we too used squared error for simplicity and speed. The other loss functions took much longer which was prohibitive given the extensive cross-validation procedure.
+
+
+## Main lab elastic net
+1. 10/10 These results are consistent with what we saw when intially doing some rough tests with teh dataset. In your case, note how Ridge Regression (alpha=0) performed the greatest, but in our solutions we found that sparser solutions yielded better results. This could have arisen as a factor of the lambdas you searched over so we will not penalize the difference in results.
+2. 10/10 This is exactly correct. One thing I’d like to point out is that the sparsest solution you found was for alpha = .75. This is due to the fact that we were adaptively choosing lambda. As a result, the trials for alpha = .75 found greater prediction accuracy with a larger regularization param yielding a sparser solution than alpha = 1. Also note how this yielded higher accuracy than alpha = 1 & .5.
+
+3. 10/10 This is a reasonable explanation given the results you saw, This would makes us think that the signal on the data is spread among many voxels. Please check the solutions for our explanation of the signal we found.
+
+4. 10/10 Again, you got the point this is useful when we expect a sparse solution with highly correlated features. This method allows us to spread weight among the highly correlated features as opposed to just selecting one. This may help in terms of robustness, but can also be useful for interpretation.
+
+## Main lab group lasso
+1. 10/10. Looks good.
+2. 10/10. Looks like you got surprisingly good results with this regularization term. This makes sense due to the fact that your normal l2 regularization performed very well, and your group lasso selected most of the features(only a few purely 0 groups). While I won't penalize you for having different results, maybe you looked at a different subject, I recommend that you check out our results and explanation.
+3. 10/10. Again, you got the point of this! The important thing was to note that groups were selected together or not at all.
+
+
+## Feedback, on time
+* on time: 5/5 points. 
+* feedback: 5/5 points. Hey Martin thanks for the feedback on how the group structure was confusing. We will have to clear that up for our main submission. Great Job on the lab
+
+Total: 45 points
+
+# Zheng Fan:
+##Warmup:
+1. 10/10. He correctly derived the pros operator and showed his derivation. 
+2. 10/10: He correctly derived the expression and successfully implemented this in code.
+
+##Main lab - Elastic Net:
+1. 10/10 Successfully analyzed the importance on lambdas and showed understanding of what the different alphas mean.
+2. 7/10: Did not directly address the question but did show understanding about what the question asked.
+3. 10/10: Gave a reasonable answer that matches our expectations. 
+4. 8/10: Answered the question but the answer provided only half answered the question, but missed the understanding about correlated features. 
+
+##Main Lab - Group LASSO:
+1. 10/10: Implemented the code successfully and showed understanding of its function.
+2. 10/10: Had a different answer than the sought for answer because there were some errors in his Group Lasso code, but he successfully analyzed these different results.
+3. 8/10: Answered the question but missed the overall goal of why you’d want to use elastic net over other L1 of L2 alone.
+
+##Overall:
+10/10: Turned in onetime and provided helpful feedback. Student did a good job of this lab.
+
+##Total grade: 93/100: The student understood the overall purpose of that lab and understood the purpose. 
+
+# He Song:
+## Warmup
+1. Derivation not shown (but correct result). 5 points.
+2. Why are you changing lambda (and incorrectly)? However, this implementation
+   looks to be about right. 5 points.
+
+## Main lab elastic net
+1. Evaluation of results is not shown (i.e., prediction accuracy). Also, we
+   asked you to write your own code and not use other third party libraries
+   (i.e., we didn't ask you to use glmnet) 3 points because it was implemented
+   in *some* way.
+2. Number of non-zero elements is not analyzed, code not provided. 0 points.
+3. It is said which one has the highest accuracy. While the main result is
+   stated, no code/source/other accuracies provided. 5 points.
+4. Sensible paragraph written. 10 points.
+
+## Main lab group lasso
+1. Group lasso pseudo code written (but results not shown). 5 points.
+2. Cross validation not implemented, results not provided. 0 points.
+3. A kinda sensible paragraph was written. Makes sense, because ridge
+   regression does the best (but no numerical results provided). 7 points.
+
+## Feedback, on time
+* on time, 5 points
+* no feedback, 0 points
+
+Total: 45 points
+
